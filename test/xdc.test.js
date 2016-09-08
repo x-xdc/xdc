@@ -264,13 +264,13 @@ test('xdc clean', t => {
     clean: true
   })
 
-  t.true(xdc.config.__xdc_CLEAN__)
+  t.true(xdc.config.__XDC_CLEAN__)
 
   xdc.set({
     clean: false
   })
 
-  t.false(xdc.config.__xdc_CLEAN__)
+  t.false(xdc.config.__XDC_CLEAN__)
 })
 
 test('add method', t => {

@@ -1,10 +1,10 @@
 'use strict'
 
 module.exports = function (config) {
-  if (!process.env.xdc_PATH) {
+  if (!process.env.XDC_PATH) {
     return
   }
-  const rootPath = process.env.xdc_PATH.split(',')
+  const rootPath = process.env.XDC_PATH.split(',')
 
   config.resolve = config.resolve || {}
   config.resolveLoader = config.resolveLoader || {}

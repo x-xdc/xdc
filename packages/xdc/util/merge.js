@@ -178,9 +178,9 @@ module.exports = function (userConfig, baseConfig) {
 
   // clean
   if (is.Boolean(userConfig.clean)) {
-    config.__xdc_CLEAN__ = userConfig.clean
+    config.__XDC_CLEAN__ = userConfig.clean
   } else {
-    config.__xdc_CLEAN__ = true
+    config.__XDC_CLEAN__ = true
   }
 
   // chunk

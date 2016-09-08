@@ -35,7 +35,7 @@ module.exports = function (config) {
     process.env.NODE_ENV === 'development' ? config.devServer : false
   )
 
-  if (config.__xdc_CLEAN__) {
+  if (config.__XDC_CLEAN__) {
     shelljs.rm('-rf', config.output.path)
   }
 
