@@ -1,0 +1,50 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "xo && nyc ava",
+    "lint": "xo",
+    "watch:test": "ava -wv",
+    "report": "nyc report --reporter=html",
+    "postinstall": "make bootstrap",
+    "pub": "lerna publish"
+  },
+  "xo": {
+    "semicolon": false,
+    "space": 2,
+    "rules": {
+      "xo/no-process-exit": 0,
+      "xo/filename-case": 0
+    },
+    "ignores": [
+      "example/**"
+    ]
+  },
+  "ava": {
+    "files": [
+      "test/*.js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x-xdc/xdc"
+  },
+  "author": "czh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/x-xdc/xdc/issues"
+  },
+  "homepage": "https://github.com/x-xdc/xdc",
+  "engines": {
+    "node": ">=4.0.0",
+    "npm": ">=3.0.0"
+  },
+  "devDependencies": {
+    "ava": "^0.15.1",
+    "coveralls": "^2.11.9",
+    "lerna": "2.0.0-beta.26",
+    "nyc": "^6.4.2",
+    "webpack": "^2.1.0-beta.21",
+    "xo": "^0.15.0"
+  },
+  "dependencies": {}
+}
