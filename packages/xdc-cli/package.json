@@ -1,6 +1,6 @@
 {
   "name": "xdc-cli",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "xdc cli.",
   "preferGlobal": true,
   "bin": {
@@ -36,7 +36,7 @@
     "babel-preset-stage-2": "^6.0.0",
     "chalk": "^1.1.3",
     "commander": "^2.9.0",
-    "xdc": "^1.2.1",
+    "xdc": "^1.2.3",
     "cross-spawn": "^4.0.0",
     "css-loader": "^0.24.0",
     "extract-text-webpack-plugin": "^2.0.0-beta",
