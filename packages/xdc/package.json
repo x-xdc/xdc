@@ -1,6 +1,6 @@
 {
   "name": "xdc",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A modular build tool based on webpack.",
   "main": "lib/xdc.js",
   "preferGlobal": false,
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/x-xdc/xdc"
+    "url": "git+https://github.com/x-xdc/xdc.git"
   },
   "keywords": [
     "vue",
@@ -27,7 +27,7 @@
     "node": ">=4.0.0",
     "npm": ">=3.0.0"
   },
-  "homepage": "https://github.com/x-xdc/xdc",
+  "homepage": "https://github.com/x-xdc/xdc#readme",
   "peerDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
