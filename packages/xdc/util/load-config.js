@@ -11,6 +11,9 @@ const logger = require('./logger')
  */
 module.exports = function (filename, program) {
   const configPath = path.join(process.cwd(), filename)
+  logger.warn(configPath)
+  logger.warn(filename)
+
   let config
 
   // load config

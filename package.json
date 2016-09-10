@@ -26,14 +26,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/x-xdc/xdc"
+    "url": "git+https://github.com/x-xdc/xdc.git"
   },
   "author": "czh",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/x-xdc/xdc/issues"
   },
-  "homepage": "https://github.com/x-xdc/xdc",
+  "homepage": "https://github.com/x-xdc/xdc#readme",
   "engines": {
     "node": ">=4.0.0",
     "npm": ">=3.0.0"
