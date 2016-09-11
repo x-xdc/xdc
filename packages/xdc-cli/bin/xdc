@@ -8,7 +8,8 @@ const check = require('../util/check')
 const config = require('../util/config')
 const logger = require('../util/logger')
 const chalk = require('chalk')
-
+const banner = require('../util/banner');
+banner()
 console.log()
 process.on('exit', () => console.log())
 
@@ -61,6 +62,7 @@ program
   .command('list', '查看已安装的插件/脚手架')
   .command('watch', '开发模式 development')
   .command('build', '生产模式 production')
+  .command('book', '查看xdc使用文档')
 
 // 加载动态指令
 require('../util/load-command')(program)

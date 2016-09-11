@@ -10,6 +10,7 @@ const logger = require('../util/logger')
 const loadConfig = require('../util/load-config')
 const webpack = require('webpack')
 const DevServer = require('webpack-dev-server')
+const openBrowser = require('open')
 const configs = []
 
 program
@@ -43,8 +44,9 @@ if (!configs.devServer.enable) {
   configs.map(config => config.plugins.push(new webpack.HotModuleReplacementPlugin()))
 
   const devServer = configs.devServer
-
   logger.success(`Listening at ${devServer.host}`)
-  new DevServer(webpack(configs), devServer)
-    .listen(devServer.port, devServer.hostname)
+  new DevServer(webpack(configs), devServer).listen(devServer.port, devServer.hostname)
+  logger.log('browser 启动中...')
+  let url = 'http://' + devServer.hostname + ':' + devServer.port
+  openBrowser(url)
 }

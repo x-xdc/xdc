@@ -33,7 +33,7 @@
   "bugs": {
     "url": "https://github.com/x-xdc/xdc/issues"
   },
-  "homepage": "https://github.com/x-xdc/xdc#readme",
+  "homepage": "https://xdc.party/book",
   "engines": {
     "node": ">=4.0.0",
     "npm": ">=3.0.0"
