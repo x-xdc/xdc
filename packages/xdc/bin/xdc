@@ -9,6 +9,12 @@ process.on('exit', function () {
   console.log()
 })
 
+if (isGlobal()) {
+logger.error(`cooking is local module. You should use ${chalk.cyan('x-xdc-cli')}
+
+            ${chalk.cyan('npm i xdc-cli -g')}`)
+}
+
 program
   .usage('<command> [options]')
   .version(require('../package.json').version)

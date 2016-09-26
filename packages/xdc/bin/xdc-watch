@@ -26,6 +26,8 @@ program.config.forEach(config => {
   configs.devServer = config.devServer
 })
 
+configs = configs.length === 1 ? configs[0] : configs
+
 // run watch
 if (!configs.devServer.enable) {
   const compiler = webpack(configs)
@@ -41,8 +43,14 @@ if (!configs.devServer.enable) {
 } else {
   // webpack dev server
   logger.log('server 启动中...')
-  configs.map(config => config.plugins.push(new webpack.HotModuleReplacementPlugin()))
+  var hostPlugin = webpack.HotModuleReplacementPlugin || function() {}
+  var namedModules = webpack.NamedModulesPlugin || function() {}
 
+  if (Array.isArray(configs)) {
+    configs.map(config => config.plugins.push(new hostPlugin(), new namedModules()))
+  } else {
+    configs.plugins.push(new hostPlugin(), new namedModules())
+  }
   const devServer = configs.devServer
   logger.success(`Listening at ${devServer.host}`)
   new DevServer(webpack(configs), devServer).listen(devServer.port, devServer.hostname)

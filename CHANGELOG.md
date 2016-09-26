@@ -1,5 +1,63 @@
 # CHANGELOG
 
+## 未发布
+- xdc:
+  - watch 时增加 NamedModulesPlugin
+
+## [v1.1.1] 2016.09.20
+- xdc:
+  - 修复 postcss 传函数时无法获取 `webpack` 参数
+- xdc-cli
+  - 锁定 webpack 版本号 beta22
+
+## [v1.1.0] 2016.09.19
+- xdc-cli: 修复 NODE_PATH 匹配顺序，用户配置放在最后
+
+## [v1.0.11] 2016.09.18
+ - xdc-cli: 修复 update 指令，能直接更新到最新版本
+ - xdc: 只有一个配置文件时当做单配置处理（之前都是传入数组配置）
+
+## [v1.0.10] 2016.09.16
+ - xdc-cli: 加载插件时会读取本地安装的插件
+
+## [v1.0.9] 2016.09.15
+ - xdc
+  - 升级 `is-global-exec`
+
+## [v1.0.8] 2016.09.15
+- xdc
+  - 修复 全局安装的提示不正确，替换用 is-global-exec 检测是否是当做全局命令行工具使用
+
+## [v1.0.7] 2016.09.14
+- xdc-cli
+  - 修复 watch 无法传参数
+
+## [v1.0.6] 2016.09.14
+- xdc
+  - 修复 chunk 为 true 时指定的路径
+
+## [v1.0.5] 2016.09.14
+- xdc-cli
+  - 修复 watch/build 无法传参数
+
+## [v1.0.4] 2016.09.12
+- xdc-cli
+  - 修复 windows 下无法使用
+
+## [v1.0.3] 2016.09.12
+- xdc: 全局安装提示改成只提示不抛异常
+
+## [v1.0.2] 2016.09.12
+- 新增 chunk 为 true 的选项，会设置打包所有引用到的 package 到 vendor 文件中，并打包一份 manifest。[例子](https://github.com/vuejs-templates/webpack/blob/dist/template/build/webpack.prod.conf.js#L62-L81)
+- xdc: 新增阻止全局安装的警告提示
+
+## [v1.0.1] 2016.09.11
+- 修复 plugin 无法设置的问题
+
+## [v1.0.0] 2016.09.11
+- 修复 postcss 选项配置出错的问题
+- 修复 clear 在开发模式也会执行的问题
+
 ## [v1.0.0-rc.3] 2016.09.06
 - 修复 xdc-cli 的依赖
 - update/import/remove 支持传入多个参数
@@ -74,7 +132,7 @@
 - 修复 插件安装目录移到用户目录下(`~/.xdc`)，避免每次升级都需要重新安装依赖
 
 ## [v0.4.4] 2016.5.21
-- 修复 windows 下无法正常使用 [#30](https://github.com/ElemeFE/xdc/issues/30)
+- 修复 windows 下无法正常使用
 - 修复 锁定 webpack 版本为 0.13.0
 
 ## [v0.4.3] 2016.5.19
