@@ -95,6 +95,12 @@ module.exports = function (userConfig, baseConfig) {
     // extractCSS
     if (userConfig.devServer) {
       extractCSS(userConfig.devServer.extractCSS, config, false)
+      // clean
+      if (is.Boolean(userConfig.devServer.clean)) {
+        config.__XDC_CLEAN__ = userConfig.devServer.clean
+      } else {
+        config.__XDC_CLEAN__ = true
+      }
     }
 
     // devtool
@@ -157,7 +163,12 @@ module.exports = function (userConfig, baseConfig) {
         config.plugins.LoaderOptions = UglifyCSS
       }
     }
-
+    // clean
+    if (is.Boolean(userConfig.clean)) {
+      config.__XDC_CLEAN__ = userConfig.clean
+    } else {
+      config.__XDC_CLEAN__ = true
+    }
     extractCSS(userConfig.extractCSS, config, userConfig.hash)
   }
 
@@ -176,16 +187,25 @@ module.exports = function (userConfig, baseConfig) {
     config.postcss = require('./load-postcss')(userConfig.postcss)
   }
 
-  // clean
-  if (is.Boolean(userConfig.clean)) {
-    config.__XDC_CLEAN__ = userConfig.clean
-  } else {
-    config.__XDC_CLEAN__ = true
-  }
-
   // chunk
   const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin
-  const chunks = userConfig.chunk
+  let chunks = userConfig.chunk
+
+  if (chunks === true) {
+    chunks = [
+      {
+        name: 'vendor',
+        minChunks: function (module) {
+          return (
+            module.resource &&
+            /\.js$/.test(module.resource) &&
+            module.resource.indexOf(path.join(process.cwd(), 'node_modules')) === 0
+          )
+        }
+      },
+      {name: 'manifest', chunks: ['vendor']}
+    ]
+  }
 
   if (is.String(chunks)) {
     config.plugins['commons-chunk'] = new CommonsChunkPlugin(chunks)

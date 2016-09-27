@@ -11,10 +11,11 @@ const loadConfig = require('../util/load-config')
 const webpack = require('webpack')
 const DevServer = require('webpack-dev-server')
 const openBrowser = require('open')
-const configs = []
+let configs = []
 
 program
   .option('-c --config [configfile]', 'config file', val => val.split(','))
+  .option('-p --progress', 'Display progress')
   .parse(process.argv)
 
 program.config = program.config || ['xdc.conf.js']

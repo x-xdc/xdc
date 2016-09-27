@@ -183,6 +183,13 @@ test('xdc set chunk', t => {
   })
 
   t.truthy(xdc.config.plugins['chunkA-chunk'])
+
+  xdc.set({
+    chunk: true
+  })
+
+  t.truthy(xdc.config.plugins['0-chunk'])
+  t.truthy(xdc.config.plugins['1-chunk'])
 })
 
 test('xdc set extractCSS', t => {
@@ -260,6 +267,7 @@ test('xdc set extractCSS in development', t => {
 })
 
 test('xdc clean', t => {
+  process.env.NODE_ENV = 'production'
   xdc.set({
     clean: true
   })
@@ -286,9 +294,11 @@ test('add method', t => {
   xdc.set({})
   xdc.add('loader.mp4', loaderMP4Config)
   xdc.add('loader.json', loaderJSONConfig)
+  xdc.add('plugins.abc', 1)
 
   t.deepEqual(xdc.config.module.loaders.mp4, loaderMP4Config)
   t.deepEqual(xdc.config.module.loaders.json, loaderJSONConfig)
+  t.deepEqual(xdc.config.plugins.abc, 1)
 })
 
 test('remove method', t => {
@@ -408,5 +418,4 @@ test('postcss', t => {
   }).resolve()
 
   t.is(typeof config.postcss, 'function')
-  t.deepEqual(config.postcss(), [undefined, 'xxx'])
 })
